@@ -10,11 +10,8 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-var modelName='XYZ';
+var modelName = 'XYZ';
 var duration=0;
-
-
-
 
 /****************** helper function ******************/
 /* create a function called recalculate() which will
@@ -30,15 +27,9 @@ var duration=0;
 function recalculate(){
     let costLabel = document.getElementById("calculated-cost");
     let newTotalCost;
-    if (modelName === "XYZ") {
-        newTotalCost = duration * 100;
-    }
-    else if (modelName === 'CPRG'){
-        newTotalCost = duration * 213;
-    }
-    else{
-        newTotalCost = 0;
-    }
+    if (modelName == "XYZ") {newTotalCost = duration * 100;}
+    else if (modelName == "CPRG"){newTotalCost = duration * 213;}
+    else{newTotalCost = 0;}
     costLabel.innerHTML = newTotalCost;
 }
 
@@ -60,12 +51,12 @@ function recalculate(){
 var modelButton = document.getElementById("model-button");
 
 function changeModel() {
-    let modelLabel = document.getElementById('model-text');
-    if (modelName === "XYZ"){
+    let modelLabel = document.getElementById("model-text");
+    if (modelName == "XYZ"){
         modelName = "CPRG";
         modelLabel.innerHTML = "Model CPRG";
     }
-    else if (modelName === 'CPRG'){
+    else if (modelName == "CPRG"){
         modelName = "XYZ";
         modelLabel.innerHTML = "Model XYZ";
     }
@@ -86,13 +77,15 @@ modelButton.addEventListener("click", changeModel);
 
 // INSERT YOUR CODE HERE
 
-var durationLabel = document.getElementById("duration-buttton");
+var durationButton = document.getElementById("duration-buttton");
 function changeDuration() {
-    let durationButton = document.getElementById("duration-text");
-    duration = window.prompt("Enter the duration");
-    if (duration !==null){
-        durationButton.innerHTML = duration;
-        recalculate();
+    let durationLabel = document.getElementById("duration-text");
+    let newDuration = prompt("Enter time of duration");
+    if (newDuration !== null){
+        duration = newDuration;
+        durationLabel.innerHTML = duration;
     }
+    else {durationLabel.innerHTML = '0'}
+    recalculate();
 }
-durationLabel.addEventListener("click", changeDuration);
+durationButton.addEventListener("click", changeDuration);
