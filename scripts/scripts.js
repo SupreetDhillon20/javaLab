@@ -85,7 +85,7 @@ function changeDuration() {
         duration = newDuration;
         durationLabel.innerHTML = duration;
     }
-    else {durationLabel.innerHTML = '0'}
+    else {durationLabel.innerHTML = '0';}
     recalculate();
 }
 durationButton.addEventListener("click", changeDuration);
